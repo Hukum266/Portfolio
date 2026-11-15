@@ -57,11 +57,11 @@
                     <div class="w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden
                                 ring-8 ring-[var(--color-accent)]/30 relative z-10">
                         @if($profile->hero_image)
-                            <img src="{{ Storage::url($profile->hero_image) }}"
+                            <img src="{{ $profile->heroImageUrl() }}"
                                  alt="{{ $profile->full_name }}"
                                  class="w-full h-full object-cover" loading="lazy" />
                         @elseif($profile->profile_image)
-                            <img src="{{ Storage::url($profile->profile_image) }}"
+                            <img src="{{ $profile->profileImageUrl() }}"
                                  alt="{{ $profile->full_name }}"
                                  class="w-full h-full object-cover" loading="lazy" />
                         @else
@@ -93,7 +93,7 @@
                 <div class="rounded-2xl overflow-hidden aspect-square max-w-sm mx-auto lg:mx-0
                             ring-1 ring-[var(--color-border)]">
                     @if($profile->profile_image)
-                        <img src="{{ Storage::url($profile->profile_image) }}"
+                        <img src="{{ $profile->profileImageUrl() }}"
                              alt="{{ $profile->full_name }}"
                              class="w-full h-full object-cover" loading="lazy" />
                     @else

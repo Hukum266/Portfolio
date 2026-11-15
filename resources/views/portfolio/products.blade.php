@@ -9,7 +9,7 @@
         <div class="card flex flex-col">
             <div class="rounded-lg overflow-hidden aspect-video mb-4 bg-[var(--color-surface-alt)]">
                 @if($product->image)
-                    <img src="{{ Storage::url($product->image) }}"
+                    <img src="{{ $product->imageUrl() }}"
                          alt="{{ $product->name }}"
                          class="w-full h-full object-cover" loading="lazy" />
                 @else

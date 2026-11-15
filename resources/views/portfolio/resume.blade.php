@@ -6,7 +6,7 @@
     <div class="flex items-start justify-between flex-wrap gap-4 mb-10">
         <x-page-header title="Resume" class="mb-0" />
         @if($profile->cv_file)
-        <a href="{{ Storage::url($profile->cv_file) }}" target="_blank" class="btn-accent">
+        <a href="{{ $profile->cvUrl() }}" target="_blank" class="btn-accent">
             <i class="fas fa-download"></i> Download CV
         </a>
         @endif

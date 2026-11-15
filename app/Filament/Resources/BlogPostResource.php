@@ -41,7 +41,7 @@ class BlogPostResource extends Resource
 
             Forms\Components\Section::make('Media & Publishing')->schema([
                 Forms\Components\FileUpload::make('thumbnail')
-                    ->image()->directory('blog')->imageEditor(),
+                    ->image()->disk('public')->directory('blog')->imageEditor(),
                 Forms\Components\Toggle::make('is_published')->label('Published')
                     ->live()
                     ->afterStateUpdated(function ($state, Forms\Set $set) {

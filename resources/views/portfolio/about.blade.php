@@ -11,7 +11,7 @@
             <div class="rounded-2xl overflow-hidden aspect-square max-w-sm mx-auto lg:mx-0
                         ring-1 ring-[var(--color-border)]">
                 @if($profile->profile_image)
-                    <img src="{{ Storage::url($profile->profile_image) }}"
+                    <img src="{{ $profile->profileImageUrl() }}"
                          alt="{{ $profile->full_name }}"
                          class="w-full h-full object-cover" loading="lazy" />
                 @else
@@ -77,7 +77,7 @@
             </div>
 
             @if($profile->cv_file)
-            <a href="{{ Storage::url($profile->cv_file) }}" target="_blank" class="btn-accent mt-8 inline-flex">
+            <a href="{{ $profile->cvUrl() }}" target="_blank" class="btn-accent mt-8 inline-flex">
                 <i class="fas fa-download"></i> Download CV
             </a>
             @endif

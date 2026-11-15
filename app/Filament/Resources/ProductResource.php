@@ -32,7 +32,7 @@ class ProductResource extends Resource
             Forms\Components\Select::make('status')
                 ->options(['available' => 'Available', 'coming_soon' => 'Coming Soon', 'discontinued' => 'Discontinued'])
                 ->required(),
-            Forms\Components\FileUpload::make('image')->image()->directory('products')->imageEditor(),
+            Forms\Components\FileUpload::make('image')->image()->disk('public')->directory('products')->imageEditor(),
             Forms\Components\Toggle::make('is_active')->default(true),
             Forms\Components\TextInput::make('sort_order')->numeric()->default(0),
         ])->columns(2);

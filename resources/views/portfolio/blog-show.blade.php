@@ -31,7 +31,7 @@
 
     @if($post->thumbnail)
     <div class="rounded-2xl overflow-hidden aspect-video mb-10">
-        <img src="{{ Storage::url($post->thumbnail) }}"
+        <img src="{{ $post->thumbnailUrl() }}"
              alt="{{ $post->title }}"
              class="w-full h-full object-cover" />
     </div>
@@ -49,7 +49,7 @@
             <a href="{{ route('blog.show', $r->slug) }}" class="card group block">
                 @if($r->thumbnail)
                 <div class="rounded-lg overflow-hidden aspect-video mb-3">
-                    <img src="{{ Storage::url($r->thumbnail) }}" alt="{{ $r->title }}"
+                    <img src="{{ $r->thumbnailUrl() }}" alt="{{ $r->title }}"
                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                          loading="lazy" />
                 </div>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class BlogPost extends Model
@@ -46,5 +47,13 @@ class BlogPost extends Model
         return $query->where('is_published', true)
                      ->whereNotNull('published_at')
                      ->where('published_at', '<=', now());
+    }
+
+    /** Full public URL for the thumbnail, or null. */
+    public function thumbnailUrl(): ?string
+    {
+        return $this->thumbnail
+            ? Storage::disk('public')->url($this->thumbnail)
+            : null;
     }
 }

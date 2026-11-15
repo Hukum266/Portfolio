@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Product extends Model
@@ -28,5 +29,13 @@ class Product extends Model
                 $model->slug = Str::slug($model->name);
             }
         });
+    }
+
+    /** Full public URL for the product image, or null. */
+    public function imageUrl(): ?string
+    {
+        return $this->image
+            ? Storage::disk('public')->url($this->image)
+            : null;
     }
 }

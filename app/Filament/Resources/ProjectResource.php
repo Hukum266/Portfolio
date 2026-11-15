@@ -38,7 +38,7 @@ class ProjectResource extends Resource
 
             Forms\Components\Section::make('Media & Links')->schema([
                 Forms\Components\FileUpload::make('thumbnail')
-                    ->image()->directory('projects')->imageEditor(),
+                    ->image()->disk('public')->directory('projects')->imageEditor(),
                 Forms\Components\TextInput::make('live_url')->url()->label('Live URL'),
                 Forms\Components\TextInput::make('github_url')->url()->label('GitHub URL'),
             ])->columns(2),

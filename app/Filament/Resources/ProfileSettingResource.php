@@ -25,9 +25,9 @@ class ProfileSettingResource extends Resource
                 Forms\Components\TextInput::make('full_name')->required()->maxLength(255),
                 Forms\Components\TextInput::make('professional_title')->required()->maxLength(255),
                 Forms\Components\FileUpload::make('profile_image')
-                    ->image()->directory('profile')->imageEditor(),
+                    ->image()->disk('public')->directory('profile')->imageEditor(),
                 Forms\Components\FileUpload::make('hero_image')
-                    ->image()->directory('profile')->imageEditor(),
+                    ->image()->disk('public')->directory('profile')->imageEditor(),
             ])->columns(2),
 
             Forms\Components\Section::make('Bio')->schema([
@@ -42,6 +42,7 @@ class ProfileSettingResource extends Resource
                 Forms\Components\TextInput::make('website')->url(),
                 Forms\Components\FileUpload::make('cv_file')
                     ->acceptedFileTypes(['application/pdf'])
+                    ->disk('public')
                     ->directory('cv'),
             ])->columns(2),
 
@@ -55,8 +56,8 @@ class ProfileSettingResource extends Resource
                 Forms\Components\TextInput::make('site_title')->maxLength(255),
                 Forms\Components\Textarea::make('meta_description')->rows(3),
                 Forms\Components\ColorPicker::make('accent_color'),
-                Forms\Components\FileUpload::make('logo')->image()->directory('site'),
-                Forms\Components\FileUpload::make('favicon')->image()->directory('site'),
+                Forms\Components\FileUpload::make('logo')->image()->disk('public')->directory('site'),
+                Forms\Components\FileUpload::make('favicon')->image()->disk('public')->directory('site'),
             ])->columns(2),
         ]);
     }

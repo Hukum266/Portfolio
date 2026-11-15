@@ -21,7 +21,7 @@
                  data-category="{{ $project->category?->slug ?? 'uncategorized' }}">
             <div class="rounded-lg overflow-hidden aspect-video mb-4 bg-[var(--color-surface-alt)]">
                 @if($project->thumbnail)
-                    <img src="{{ Storage::url($project->thumbnail) }}"
+                    <img src="{{ $project->thumbnailUrl() }}"
                          alt="{{ $project->title }}"
                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                          loading="lazy" />

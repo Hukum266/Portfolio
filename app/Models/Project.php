@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Project extends Model
@@ -42,5 +43,13 @@ class Project extends Model
         return $this->technologies
             ? array_map('trim', explode(',', $this->technologies))
             : [];
+    }
+
+    /** Full public URL for the thumbnail, or null. */
+    public function thumbnailUrl(): ?string
+    {
+        return $this->thumbnail
+            ? Storage::disk('public')->url($this->thumbnail)
+            : null;
     }
 }

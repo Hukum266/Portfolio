@@ -14,12 +14,12 @@
     <meta property="og:type"        content="website" />
     <meta property="og:url"         content="{{ url()->current() }}" />
     @if($profile->profile_image)
-    <meta property="og:image" content="{{ Storage::url($profile->profile_image) }}" />
+        <meta property="og:image" content="{{ $profile->profileImageUrl) }}" />
     @endif
 
     {{-- Favicon --}}
     @if($profile->favicon)
-    <link rel="icon" href="{{ Storage::url($profile->favicon) }}" />
+    <link rel="icon" href="{{ $profile->faviconUrl() }}" />
     @endif
 
     {{-- Font Awesome --}}
